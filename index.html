@@ -74,9 +74,12 @@
             // take input from input field and pass input field value in function(call function)
             const depositNumber = getInputNumber('deposit-amount');
             // call function, pass current_balance(span tag ID) and deposit_number(input field balance)
-            updateCurrentBalanceSpanTag('current-deposit', depositNumber);
-            updateCurrentBalanceSpanTag('current-balance', depositNumber); 
-
+            if(depositNumber < 0){
+                alert('You can not input negative number..!');
+            }else{
+                updateCurrentBalanceSpanTag('current-deposit', depositNumber);
+                updateCurrentBalanceSpanTag('current-balance', depositNumber); 
+            }
             // clear input field
             document.getElementById('deposit-amount').value = '';
         });
